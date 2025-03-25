@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Cita Inmobiliaria</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .calendar {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .calendar th, .calendar td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .calendar th {
+            background-color: #f2f2f2;
+        }
+
+        .calendar td.available {
+            background-color: #e6f7ff;
+            cursor: pointer;
+        }
+
+        .calendar td.selected {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Agendar Cita</h2>
+    <form id="citaForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="tipoCita">Tipo de Cita:</label>
+        <select id="tipoCita" name="tipoCita">
+            <option value="visita">Visita a Propiedad</option>
+            <option value="asesoria">Asesoría</option>
+        </select>
+
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" required>
+
+        <label for="hora">Hora:</label>
+        <select id="hora" name="hora">
+            <option value="9:00">9:00 AM</option>
+            <option value="10:00">10:00 AM</option>
+            <option value="11:00">11:00 AM</option>
+            <option value="12:00">12:00 PM</option>
+            <option value="13:00">1:00 PM</option>
+            <option value="14:00">2:00 PM</option>
+            <option value="15:00">3:00 PM</option>
+            <option value="16:00">4:00 PM</option>
+            <option value="17:00">5:00 PM</option>
+        </select>
+
+        <button type="submit">Agendar Cita</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('citaForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const nombre = document.getElementById('nombre').value;
+        const email = document.getElementById('email').value;
+        const tipoCita = document.getElementById('tipoCita').value;
+        const fecha = document.getElementById('fecha').value;
+        const hora = document.getElementById('hora').value;
+
+        alert(`Cita agendada para ${nombre} (${email}). Tipo: ${tipoCita}, Fecha: ${fecha}, Hora: ${hora}`);
+
+        // Aquí puedes agregar la lógica para enviar los datos a tu servidor o guardar la cita en una base de datos.
+    });
+</script>
+
+</body>
+</html>
